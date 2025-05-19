@@ -1,0 +1,12 @@
+<div class="jumbotron"><h1>Gardons le contact...</h1></div>
+
+<div class="card p-3" style="margin:auto; max-width: 350px;">
+  @if(message){
+    <div class="alert alert-success">{{message}}</div>
+  }
+  @else {
+    <div class="form-group"><input [(ngModel)]="email" type="text" class="form-control" placeholder="mon email" /></div>
+    <div class="form-group"><input (click)="save()" type="button" value="Valider" class="btn btn-success" /></div>
+  }
+</div>
+

@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1>Tous nos produits</h1>
+</div>
+<section class="d-flex">
+<div class="d-flex flex-column flex-wrap justify-content-center">
+  @for(car of cars$ | async; track car.carId){
+    <a [routerLink]="[car.carId]"  routerLinkActive="img-thumbnail" class="m-2">
+      <img class="img-fluid" [src]="'/assets/pictures/' + car.picture" [alt]="car.picture" [title]="car.picture"  style="max-height: 70px;" />
+    </a>
+  }
+</div>
+<div class="flex-grow-1">
+  <router-outlet></router-outlet>
+</div>
+</section>

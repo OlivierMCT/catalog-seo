@@ -1,0 +1,9 @@
+@if(car$ | async; as car){
+  <div>
+    <h1>{{car.brand}} {{car.model}}</h1>
+    <h3>{{car.price | currency}}</h3>
+      <img class="img-fluid" [src]="'/assets/pictures/' + car.picture" [alt]="car.picture" [title]="car.picture"   />
+
+  </div>
+
+}
