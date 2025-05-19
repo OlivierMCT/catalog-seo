@@ -22,7 +22,7 @@ export const routes: Routes = [
   {
     path: 'nos-produits',
     loadComponent: () => import('./components/catalog/catalog.component').then(m => m.CatalogComponent),
-    data: { title: 'Nos Produits', description: 'Description de la page Nos Produits' },
+    data: { title: 'Nos Produits', description: 'Description de la page Nos Produits', preload: true },
     children: [{
         path: ':id',
         loadComponent: () => import('./components/product/product.component').then(m => m.ProductComponent),
@@ -31,8 +31,8 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: 'contact', loadComponent: () => import('./components/contact/contact.component').then(m => m.ContactComponent), data: { title: 'Contact', description: 'Description de la page Contact' } },
-  { path: 'accueil', loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent), data: { title: 'Accueil', description: 'Description de la page Accueil' } },
+  { path: 'contact', loadComponent: () => import('./components/contact/contact.component').then(m => m.ContactComponent), data: { title: 'Contact', description: 'Description de la page Contact', preload: true } },
+  { path: 'accueil', loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent), data: { title: 'Accueil', description: 'Description de la page Accueil', preload: true } },
   { path: 'se-connecter', loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent), data: { title: 'Se Connecter', description: 'Description de la page Se Connecter' } },
   { path: '', loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent), data: { title: 'Accueil', description: 'Description de la page Accueil' } },
 
