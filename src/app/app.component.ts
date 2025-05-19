@@ -6,7 +6,7 @@ import { filter, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, LoaderComponent],
   templateUrl: './app.component.html',
   standalone: true,
 })

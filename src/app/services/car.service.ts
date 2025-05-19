@@ -54,7 +54,7 @@ export class CarService {
     }
 
     public getCar(carId: number): Observable<Car | undefined> {
-      return of(this._cars.find(v => v.carId === carId));
+      return of(this._cars.find(v => v.carId === carId)).pipe(delay(5000));
     }
 
     public static GET_CAR_RESOLVER: ResolveFn<Car | undefined> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
