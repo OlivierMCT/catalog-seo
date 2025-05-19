@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserService } from './services/user.service';
 import { ProductComponent } from './components/product/product.component';
+import { CarService } from './services/car.service';
 
 export const routes: Routes = [
   { path: 'a-propos',
@@ -25,7 +26,8 @@ export const routes: Routes = [
     children: [{
         path: ':id',
         loadComponent: () => import('./components/product/product.component').then(m => m.ProductComponent),
-        data: { title: 'Produit', description: 'Description de la page Produit' },
+        //data: { title: 'Produit', description: 'Description de la page Produit' },
+        resolve: { theCar: CarService.GET_CAR_RESOLVER }
       },
     ],
   },

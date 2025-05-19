@@ -57,8 +57,8 @@
               "outputHashing": "all",
               "prerender": {
                 "discoverRoutes": false,
-              "routesFile": "routes.txt"
-            }
+                "routesFile": "routes.txt"
+              }
             },
             "development": {
               "optimization": false,

@@ -1,6 +1,8 @@
-import { Injectable } from "@angular/core";
-import { delay, Observable, of } from "rxjs";
+import { inject, Injectable } from "@angular/core";
+import { delay, Observable, of, tap } from "rxjs";
 import { Car, CarInfo, Category } from "../models/car.model";
+import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from "@angular/router";
+import { SeoService } from "./seo.service";
 
 @Injectable( { providedIn: 'root' } )
 export class CarService {
@@ -53,5 +55,15 @@ export class CarService {
 
     public getCar(carId: number): Observable<Car | undefined> {
       return of(this._cars.find(v => v.carId === carId));
+    }
+
+    public static GET_CAR_RESOLVER: ResolveFn<Car | undefined> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+      const carId = +route.params['id'];
+      const seoService = inject(SeoService);
+      return (inject(CarService)).getCar(carId).pipe(
+                tap((car: Car | undefined) => {
+                  seoService.setMetaTags(car?.brand + ' ' + car?.model, car?.price + '€');
+                }),
+              );
     }
 }

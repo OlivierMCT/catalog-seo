@@ -28,6 +28,7 @@ export class SeoService {
       map((snapshot) => (<ActivatedRouteSnapshot>snapshot).data)
     )
     .subscribe((data) => {
+      if(data['title'] == undefined && data['description'] == undefined) return;
       const title = data['title'] || 'Default Title';
       const description = data['description'] || 'Default Description';
 
